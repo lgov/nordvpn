@@ -124,8 +124,8 @@ while [ ! -S /run/nordvpnd.sock ]; do
 done
 
 echo "Reading docker secrets in environment variables."
-USER=`cat /docker/run/secrets/NORDVPN_USER`
-PASS=`cat /docker/run/secrets/NORDVPN_PASSWORD`
+USER=`cat /run/secrets/NORDVPN_USER`
+PASS=`cat /run/secrets/NORDVPN_PASSWORD`
 
 nordvpn login -u ${USER} -p "${PASS}"
 
