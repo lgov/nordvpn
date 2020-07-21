@@ -20,6 +20,14 @@ services:
     secrets:
       - NORDVPN_USER
       - NORDVPN_PASSWORD
+    cap_add:
+      - NET_ADMIN               # Required
+      - SYS_MODULE              # Required for TECHNOLOGY=NordLynx
+    sysctls:
+      - net.ipv4.conf.all.rp_filter=2
+    devices:
+      - /dev/net/tun            # Required
+
 secrets:
   NORDVPN_USER:
     external: true
