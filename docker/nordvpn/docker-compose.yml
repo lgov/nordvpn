@@ -1,0 +1,28 @@
+version: "3.8"
+
+# Can't use DOCKER_HOST:
+# https://stackoverflow.com/questions/35072611/unable-to-use-variable-substitution-in-docker-compose
+
+services:
+  nordvpn:
+    container_name: nordvpn
+    image: nordvpn:latest
+    command: /usr/bin/start_vpn.sh
+    deploy:
+      resources:
+        limits:
+          memory: 1500M
+      restart_policy:
+        condition: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    secrets:
+      - NORDVPN_USER
+      - NORDVPN_PASSWORD
+secrets:
+  NORDVPN_USER:
+    external: true
+  NORDVPN_PASSWORD:
+    external: true
