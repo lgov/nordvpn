@@ -22,7 +22,8 @@ currentDate=`date`
 echo "Current time: $currentDate" >> ~/docker_compose.log
 
 pushd nordvpn
-MY_DOCKER_HOST=`ip -f inet addr show docker0 | awk '/inet/ {print $2}' | cut -d/ -f1` docker stack deploy --compose-file docker-compose.yml nordvpn >> ~/docker_compose.log 2>&1
+MY_DOCKER_HOST=`ip -f inet addr show docker0 | awk '/inet/ {print $2}' | cut -d/ -f1` docker-compose up -d >> ~/docker_compose.log 2>&1
+
 popd
 echo "-----------------------FINISHED ------------------------------" >> ~/docker_compose.log
 
