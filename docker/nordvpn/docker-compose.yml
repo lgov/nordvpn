@@ -9,7 +9,6 @@ version: "3.8"
 services:
   nordvpn:
     image: nordvpn:latest
-    user: root
     deploy:
       resources:
         limits:
