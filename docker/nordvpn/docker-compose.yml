@@ -16,7 +16,7 @@ services:
       restart_policy:
         condition: on-failure
     environment:
-      - COUNTRY=United_States
+      - CONNECT=United_States
       - TECHNOLOGY=NordLynx
     logging:
       driver: "json-file"
