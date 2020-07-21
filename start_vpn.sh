@@ -127,7 +127,7 @@ echo "Reading docker secrets in environment variables."
 USER=`cat /run/secrets/NORDVPN_USER`
 PASS=`cat /run/secrets/NORDVPN_PASSWORD`
 
-nordvpn login -u ${USER} -p "${PASS}"
+nordvpn login -u ${USER} -p ${PASS}
 
 setup_nordvpn
 create_tun_device
