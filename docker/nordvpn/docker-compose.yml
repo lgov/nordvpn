@@ -7,7 +7,6 @@ services:
   nordvpn:
     container_name: nordvpn
     image: nordvpn:latest
-    command: /usr/bin/start_vpn.sh
     deploy:
       resources:
         limits:
