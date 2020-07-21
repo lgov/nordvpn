@@ -16,6 +16,9 @@ services:
           memory: 1500M
       restart_policy:
         condition: on-failure
+    environment:
+      - COUNTRY=United_States
+      - TECHNOLOGY=NordLynx
     logging:
       driver: "json-file"
       options:
