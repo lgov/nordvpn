@@ -32,3 +32,5 @@ services:
       - /dev/net/tun            # Required
     volumes:
       - ./secrets:/run/secrets
+    ports:
+      - 8080:8080
