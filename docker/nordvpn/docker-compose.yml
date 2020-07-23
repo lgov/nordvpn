@@ -9,7 +9,7 @@ version: "3.8"
 services:
   nordvpn:
     image: nordvpn:latest
-    network_mode: bridge
+    network_mode: host
     deploy:
       resources:
         limits:
@@ -32,5 +32,12 @@ services:
       - /dev/net/tun            # Required
     volumes:
       - ./secrets:/run/secrets
+
+  nordvpn-privoxy:
+    image: nordvpn-privoxy:latest
     ports:
-      - 8080:8080
+      - 8118:8118
+    network_mode: service:nordvpn
+    depends_on:
+      - nordvpn
+      -
