@@ -40,4 +40,3 @@ services:
     network_mode: service:nordvpn
     depends_on:
       - nordvpn
-      -
