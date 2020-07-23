@@ -32,11 +32,12 @@ services:
       - /dev/net/tun            # Required
     volumes:
       - ./secrets:/run/secrets
+    # A bit strange, but we need to expose the ports of the privoxy container here.
+    ports:
+      - 8118:8118
 
   nordvpn-privoxy:
     image: nordvpn-privoxy:latest
-    ports:
-      - 8118:8118
     network_mode: service:nordvpn
     depends_on:
       - nordvpn
