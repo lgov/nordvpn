@@ -7,11 +7,11 @@ version: "3.8"
 # NORDVPN_USER
 # NORDVPN_PASSWORD
 
-# https://jordanelver.co.uk/blog/2019/06/03/routing-docker-traffic-through-a-vpn-connection/
-
+#@ https://jordanelver.co.uk/blog/2019/06/03/routing-docker-traffic-through-a-vpn-connection/
 services:
   nordvpn:
     image: nordvpn:latest
+    network_mode: bridge
     deploy:
       resources:
         limits:
@@ -41,6 +41,6 @@ services:
 
   nordvpn-privoxy:
     image: nordvpn-privoxy:latest
-#    network_mode: service:nordvpn
+    network_mode: service:nordvpn
     depends_on:
       - nordvpn
