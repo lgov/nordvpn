@@ -1,7 +1,8 @@
 ARG ARCH=amd64
 FROM balenalib/${ARCH}-debian
 
-ARG NORDVPN_VERSION
+# https://github.com/bubuntux/nordvpn/issues/103
+ARG NORDVPN_VERSION="3.7.4"
 LABEL maintainer="Lieven Govaerts"
 
 HEALTHCHECK --interval=5m --timeout=20s --start-period=1m \

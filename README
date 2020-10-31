@@ -1,0 +1,11 @@
+$ docker run -it nordvpn:latest /bin/bash
+
+root@41c3c5bf2280:/# nordvpnd &
+
+root@41c3c5bf2280:/# nordvpn countries
+Albania, Argentina, Australia, Austria, Belgium, Bosnia_And_Herzegovina, Brazil, Bulgaria, Canada, Chile,
+Costa_Rica, Croatia, Cyprus, Czech_Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Greece,
+Hong_Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Latvia, Luxembourg, Malaysia,
+Mexico, Moldova, Netherlands, New_Zealand, North_Macedonia, Norway, Poland, Portugal, Romania, Serbia,
+Singapore, Slovakia, Slovenia, South_Africa, South_Korea, Spain, Sweden, Switzerland, Taiwan, Thailand,
+urkey, Ukraine, United_Kingdom, United_States, Vietnam
