@@ -30,5 +30,5 @@ ADD privoxy/privoxy-start.sh /usr/local/bin/
 ADD privoxy/config /etc/privoxy/
 RUN chmod +r /etc/privoxy/config && chmod +x /usr/local/bin/privoxy-start.sh
 
-CMD ["/usr/bin/start_vpn.sh && /usr/local/bin/privoxy-start.sh"]
+
 # TODO: tail the nordvpn log file.?
