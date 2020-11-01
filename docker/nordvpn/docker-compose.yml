@@ -11,6 +11,7 @@ version: "3.8"
 services:
   nordvpn:
     image: nordvpn:latest
+    network_mode: bridge
     deploy:
       resources:
         limits:
