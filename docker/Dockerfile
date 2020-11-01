@@ -27,6 +27,7 @@ RUN addgroup --system vpn && \
 COPY vpn/start_vpn.sh /usr/bin
 
 ADD privoxy/privoxy-start.sh /usr/local/bin/
+ADD privoxy/startup.sh /usr/local/bin/
 ADD privoxy/config /etc/privoxy/
 RUN chmod +r /etc/privoxy/config && chmod +x /usr/local/bin/privoxy-start.sh
 
