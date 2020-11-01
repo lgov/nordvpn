@@ -138,4 +138,4 @@ echo "Connect."
 nordvpn connect ${CONNECT} || exit 1
 nordvpn status
 
-tail -f --pid=$(pidof nordvpnd) /var/log/nordvpn/daemon.log
+# tail -f --pid=$(pidof nordvpnd) /var/log/nordvpn/daemon.log
