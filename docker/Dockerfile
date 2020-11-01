@@ -11,7 +11,7 @@ HEALTHCHECK --interval=5m --timeout=20s --start-period=1m \
 #CROSSRUN [ "cross-build-start" ]
 RUN addgroup --system vpn && \
     apt-get update && apt-get upgrade -y && \
-    apt-get install -y wget dpkg curl gnupg2 jq && \
+    apt-get install -y wget dpkg curl gnupg2 jq privoxy && \
     wget -nc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb && dpkg -i nordvpn-release_1.0.0_all.deb && \
     apt-get update && apt-get install -yqq nordvpn${NORDVPN_VERSION:+=$NORDVPN_VERSION} || sed -i "s/init)/$(ps --no-headers -o comm 1))/" /var/lib/dpkg/info/nordvpn.postinst && \
     update-alternatives --set iptables /usr/sbin/iptables-legacy && \
@@ -24,6 +24,11 @@ RUN addgroup --system vpn && \
         /var/tmp/*
 #CROSSRUN [ "cross-build-end" ]
 
-CMD /usr/bin/start_vpn.sh
-COPY start_vpn.sh /usr/bin
+COPY vpn/start_vpn.sh /usr/bin
 
+ADD privoxy/privoxy-start.sh /usr/local/bin/
+ADD privoxy/config /etc/privoxy/
+RUN chmod +r /etc/privoxy/config && chmod +x /usr/local/bin/privoxy-start.sh
+
+CMD ["/usr/bin/start_vpn.sh && /usr/local/bin/privoxy-start.sh"]
+# TODO: tail the nordvpn log file.?

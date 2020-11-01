@@ -11,7 +11,6 @@ version: "3.8"
 services:
   nordvpn:
     image: nordvpn:latest
-    network_mode: bridge
     deploy:
       resources:
         limits:
@@ -38,9 +37,3 @@ services:
     # A bit strange, but we need to expose the ports of the privoxy container here.
     ports:
       - 8118:8118
-
-  nordvpn-privoxy:
-    image: nordvpn-privoxy:latest
-    network_mode: service:nordvpn
-    depends_on:
-      - nordvpn
