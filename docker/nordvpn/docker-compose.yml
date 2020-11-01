@@ -18,7 +18,7 @@ services:
           memory: 1500M
       restart_policy:
         condition: any
-    command: "/usr/bin/start_vpn.sh ; /usr/local/bin/privoxy-start.sh"
+    command: "/usr/local/bin/startup.sh"
     environment:
       - CONNECT=United_States
       - TECHNOLOGY=NordLynx
